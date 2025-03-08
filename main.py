@@ -203,7 +203,7 @@ def tip():
         data = result.decode('utf-8')
         dict_data = json.loads(data)
         pop = dict_data["result"]["pcpn"]
-        tips = dict_data["result"]["tips"]
+        tips ='雾天出门建议佩戴口罩，并小心行车注意安全。天气凉，适宜着一到两件羊毛衫、大衣、毛套装、皮夹克等春秋着装；年老体弱者宜着风衣加羊毛衫等厚型春秋着装。空气质量优秀，快去户外呼吸清新空气吧。'
         tempn = dict_data["result"]["lowest"]
         temp = dict_data["result"]['highest']
         return pop, tips ,tempn ,temp
@@ -271,6 +271,7 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                 "value": note_ch,
                 "color": get_color()
             },
+
 
             "pop": {
                 "value": pop,
