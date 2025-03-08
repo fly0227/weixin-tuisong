@@ -92,11 +92,7 @@ def get_weather(province, city):
     weatherinfo = response_json["weatherinfo"]
     # 天气
     weather = weatherinfo["weather"]
-    # 最高气温
-    temp = weatherinfo["temp"]
-    # 最低气温
-    tempn = weatherinfo["tempn"]
-    return weather, temp, tempn
+    return weather
 
 
 # 词霸每日一句
@@ -195,7 +191,9 @@ def tip():
         dict_data = json.loads(data)
         tips = dict_data["result"]["tips"]
         pop = dict_data["result"]["pop"]
-        return pop, tips
+        tempn = dict_data["result"]["lowest"]
+        temp = dict_data["result"]['highest']
+        return pop, tips,tempn,temp
     else:
         return "", ""
 
@@ -327,7 +325,7 @@ if __name__ == "__main__":
     users = config["user"]
     # 传入省份和市获取天气信息
     province, city = config["province"], config["city"]
-    weather, max_temperature, min_temperature = get_weather(province, city)
+    weather = get_weather(province, city)
     # 获取彩虹屁API
     caihongpi_API = config["caihongpi_API"]
     # 获取励志古言API
@@ -349,7 +347,7 @@ if __name__ == "__main__":
     # 健康小提示
     # health_tip = health()
     # 下雨概率和建议
-    pop, tips = tip()
+    pop, tips, max_temperature, min_temperature = tip()
     # 励志名言
     lizhi = lizhi()
     # 星座运势
