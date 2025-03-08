@@ -150,22 +150,22 @@ def caihongpi():
 #         return ""
 
 
-# 星座运势
-def lucky():
-    if lucky_API != "替换掉我":
-        conn = http.client.HTTPSConnection('api.tianapi.com')  # 接口域名
-        params = urllib.parse.urlencode({'key': lucky_API, 'astro': astro})
-        headers = {'Content-type': 'application/x-www-form-urlencoded'}
-        conn.request('POST', '/star/index', params, headers)
-        res = conn.getresponse()
-        data = res.read()
-        data = json.loads(data)
-        data = "爱情指数：" + str(data["newslist"][1]["content"]) + "\n速配星座：" + str(
-            data["newslist"][7]["content"]) + "\n工作指数：" + str(data["newslist"][2]["content"]) + "\n今日概述：" + str(
-            data["newslist"][8]["content"])
-        return data
-    else:
-        return ""
+# # 星座运势
+# def lucky():
+#     if lucky_API != "替换掉我":
+#         conn = http.client.HTTPSConnection('api.tianapi.com')  # 接口域名
+#         params = urllib.parse.urlencode({'key': lucky_API, 'astro': astro})
+#         headers = {'Content-type': 'application/x-www-form-urlencoded'}
+#         conn.request('POST', '/star/index', params, headers)
+#         res = conn.getresponse()
+#         data = res.read()
+#         data = json.loads(data)
+#         data = "爱情指数：" + str(data["newslist"][1]["content"]) + "\n速配星座：" + str(
+#             data["newslist"][7]["content"]) + "\n工作指数：" + str(data["newslist"][2]["content"]) + "\n今日概述：" + str(
+#             data["newslist"][8]["content"])
+#         return data
+#     else:
+#         return ""
 
 
 # 励志名言
@@ -346,7 +346,7 @@ if __name__ == "__main__":
     # 获取健康小提示API
     # health_API = config["health_API"]
     # 获取星座运势API
-    lucky_API = config["lucky_API"]
+    # lucky_API = config["lucky_API"]
     # 获取星座
     astro = config["astro"]
     # 获取词霸每日金句
