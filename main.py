@@ -122,10 +122,8 @@ def caihongpi():
         tianapi = conn.getresponse()
         result = tianapi.read()
         data = result.decode('utf-8')
-        dict_data = json.loads(data)
-        if "XXX" in data:
-            dict_data.replace("XXX", "宝贝")
-        return dict_data['result']['content']
+        dict_data = json.loads(data)['result']['content']
+        return dict_data
     else:
         return ""
 
