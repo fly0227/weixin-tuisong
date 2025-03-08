@@ -122,7 +122,7 @@ def caihongpi():
         res = conn.getresponse()
         data = res.read()
         data = json.loads(data)
-        data = data["newslist"][0]["content"]
+        data = data["result"]["content"]
         if "XXX" in data:
             data.replace("XXX", "宝贝")
         return data
@@ -174,7 +174,7 @@ def lizhi():
         res = conn.getresponse()
         data = res.read()
         data = json.loads(data)
-        return data["newslist"][0]["saying"]
+        return data["result"]["saying"]
     else:
         return ""
 
