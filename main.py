@@ -202,7 +202,7 @@ def tip():
         result = tianapi.read()
         data = result.decode('utf-8')
         dict_data = json.loads(data)
-        pop = dict_data["result"]["pop"]
+        pop = dict_data["result"]["pcpn"]
         tips = dict_data["result"]["tips"]
         tempn = dict_data["result"]["lowest"]
         temp = dict_data["result"]['highest']
