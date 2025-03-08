@@ -348,23 +348,23 @@ if __name__ == "__main__":
     # 获取星座运势API
     # lucky_API = config["lucky_API"]
     # 获取星座
-    astro = config["astro"]
+    # astro = config["astro"]
     # 获取词霸每日金句
     note_ch, note_en = get_ciba()
     # 彩虹屁
     pipi = caihongpi()
     # 健康小提示
-    health_tip = health()
+    # health_tip = health()
     # 下雨概率和建议
     pop, tips = tip()
     # 励志名言
     lizhi = lizhi()
     # 星座运势
-    lucky_ = lucky()
+    # lucky_ = lucky()
     # 公众号推送消息
     for user in users:
         send_message(user, accessToken, city, weather, max_temperature, min_temperature, pipi, lizhi, pop, tips,
-                     note_en, note_ch, health_tip, lucky_)
+                     note_en, note_ch)
     import time
 
     time_duration = 3.5
