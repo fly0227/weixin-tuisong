@@ -113,21 +113,21 @@ def get_ciba():
 
 
 # # 彩虹屁
-# def caihongpi():
-#     if caihongpi_API != "替换掉我":
-#         conn = http.client.HTTPSConnection('api.tianapi.com')  # 接口域名
-#         params = urllib.parse.urlencode({'key': caihongpi_API})
-#         headers = {'Content-type': 'application/x-www-form-urlencoded'}
-#         conn.request('POST', '/caihongpi/index', params, headers)
-#         res = conn.getresponse()
-#         data = res.read()
-#         data = json.loads(data)
-#         data = data["result"]["content"]
-#         if "XXX" in data:
-#             data.replace("XXX", "宝贝")
-#         return data
-#     else:
-#         return ""
+def caihongpi():
+    if caihongpi_API != "替换掉我":
+        conn = http.client.HTTPSConnection('apis.tianapi.com')  #接口域名
+        params = urllib.parse.urlencode({'key':'c64bc326c3c450f1819bceb14b929027'})
+        headers = {'Content-type':'application/x-www-form-urlencoded'}
+        conn.request('POST','/caihongpi/index',params,headers)
+        tianapi = conn.getresponse()
+        result = tianapi.read()
+        data = result.decode('utf-8')
+        dict_data = json.loads(data)
+        if "XXX" in data:
+            dict_data.replace("XXX", "宝贝")
+        return dict_data['result']['content']
+    else:
+        return ""
 
 
 # # 健康小提示API
@@ -212,7 +212,7 @@ def tip():
 
 
 # 推送信息
-def send_message(to_user, access_token, city_name, weather, max_temperature, min_temperature, pop, tips,
+def send_message(to_user, access_token, city_name, weather, max_temperature, min_temperature, pop, tips,pipi,
                  note_en, note_ch):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
     week_list = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
@@ -278,6 +278,10 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                 "color": get_color()
             },
 
+            "pipi": {
+                "value": pipi,
+                "color": get_color()
+            },
 
             "tips": {
                 "value": tips,
@@ -345,7 +349,7 @@ if __name__ == "__main__":
     # 获取词霸每日金句
     note_ch, note_en = get_ciba()
     # 彩虹屁
-    # pipi = caihongpi()
+    pipi = caihongpi()
     # 健康小提示
     # health_tip = health()
     # 下雨概率和建议
@@ -356,7 +360,7 @@ if __name__ == "__main__":
     # lucky_ = lucky()
     # 公众号推送消息
     for user in users:
-        send_message(user, accessToken, city, weather, max_temperature, min_temperature, pop, tips,
+        send_message(user, accessToken, city, weather, max_temperature, min_temperature, pop, tips,pipi,
                      note_en, note_ch)
     import time
 
