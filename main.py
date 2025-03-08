@@ -266,10 +266,7 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                 "color": get_color()
             },
 
-            "lucky": {
-                "value": lucky_,
-                "color": get_color()
-            },
+          
 
             "lizhi": {
                 "value": lizhi,
@@ -281,10 +278,6 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                 "color": get_color()
             },
 
-            "health": {
-                "value": health_tip,
-                "color": get_color()
-            },
 
             "tips": {
                 "value": tips,
