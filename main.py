@@ -187,7 +187,8 @@ def tip():
         headers = {'Content-type': 'application/x-www-form-urlencoded'}
         conn.request('POST', '/tianqi/index', params, headers)
         res = conn.getresponse()
-        data = res.read()
+        result = res.read()
+        data = result.decode('utf-8')
         dict_data = json.loads(data)
         tips = dict_data["result"]["tips"]
         pop = dict_data["result"]["pop"]
