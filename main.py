@@ -182,12 +182,24 @@ def get_ciba():
 # 下雨概率和建议
 def tip():
     if tianqi_API != "替换掉我":
-        conn = http.client.HTTPSConnection('api.tianapi.com')  # 接口域名
-        params = urllib.parse.urlencode({'key': tianqi_API, 'city': city})
-        headers = {'Content-type': 'application/x-www-form-urlencoded'}
-        conn.request('POST', '/tianqi/index', params, headers)
-        res = conn.getresponse()
-        result = res.read()
+        # conn = http.client.HTTPSConnection('api.tianapi.com')  # 接口域名
+        # params = urllib.parse.urlencode({'key': tianqi_API, 'city': city})
+        # headers = {'Content-type': 'application/x-www-form-urlencoded'}
+        # conn.request('POST', '/tianqi/index', params, headers)
+        # res = conn.getresponse()
+        # result = res.read()
+        # data = result.decode('utf-8')
+        # dict_data = json.loads(data)
+        # tips = dict_data["result"]["tips"]
+        # pop = dict_data["result"]["pop"]
+        # tempn = dict_data["result"]["lowest"]
+        # temp = dict_data["result"]['highest']
+        conn = http.client.HTTPSConnection('apis.tianapi.com')  #接口域名
+        params = urllib.parse.urlencode({'key':tianqi_API,'city':city,'type':'1'})
+        headers = {'Content-type':'application/x-www-form-urlencoded'}
+        conn.request('POST','/tianqi/index',params,headers)
+        tianapi = conn.getresponse()
+        result = tianapi.read()
         data = result.decode('utf-8')
         dict_data = json.loads(data)
         tips = dict_data["result"]["tips"]
@@ -196,7 +208,7 @@ def tip():
         temp = dict_data["result"]['highest']
         return pop, tips ,tempn ,temp
     else:
-        return "", ""
+        return ""
 
 
 # 推送信息
