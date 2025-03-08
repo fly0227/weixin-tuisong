@@ -195,7 +195,7 @@ def tip():
         tempn = dict_data["result"]["lowest"]
         temp = dict_data["result"]['highest']
         riqi_date = dict_data["result"]["date"]
-        temp = dict_data["result"]['week']
+        week = dict_data["result"]['week']
         return pop, tips,tempn ,temp,riqi_date,week
     else:
         return ""
