@@ -125,7 +125,7 @@ def caihongpi():
         dict_data = json.loads(data)['result']['content']
         # if "XXX" in data:
         #     dict_data.replace("XXX", "宝贝")
-        return dict_data
+        return '哈哈哈哈哈哈哈哈'
     else:
         return ""
 
@@ -203,10 +203,10 @@ def tip():
         data = result.decode('utf-8')
         dict_data = json.loads(data)
         pop = dict_data["result"]["pcpn"]
-        # tips ='雾天出门建议佩戴口罩，并小心行车注意安全。天气凉，适宜着一到两件羊毛衫、大衣、毛套装、皮夹克等春秋着装；年老体弱者宜着风衣加羊毛衫等厚型春秋着装。空气质量优秀，快去户外呼吸清新空气吧。'
+        tips =dict_data["result"]["tips"]
         tempn = dict_data["result"]["lowest"]
         temp = dict_data["result"]['highest']
-        return pop, f"<div>雾天出门建议佩戴口罩，并小心行车注意安全。天气凉，适宜着一到两件羊毛衫、大衣、毛套装、皮夹克等春秋着装；年老体弱者宜着风衣加羊毛衫等厚型春秋着装。空气质量优秀，快去户外呼吸清新空气吧。</div>" ,tempn ,temp
+        return pop, tips,tempn ,temp
     else:
         return ""
 
