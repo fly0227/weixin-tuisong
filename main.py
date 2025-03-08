@@ -96,20 +96,20 @@ def get_weather(province, city):
 
 
 # 词霸每日一句
-def get_ciba():
-    if Whether_Eng != "否":
-        url = "http://open.iciba.com/dsapi/"
-        headers = {
-            'Content-Type': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-                          'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
-        }
-        r = get(url, headers=headers)
-        note_en = r.json()["content"]
-        note_ch = r.json()["note"]
-        return note_ch, note_en
-    else:
-        return "", ""
+# def get_ciba():
+#     if Whether_Eng != "否":
+#         url = "http://open.iciba.com/dsapi/"
+#         headers = {
+#             'Content-Type': 'application/json',
+#             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+#                           'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
+#         }
+#         r = get(url, headers=headers)
+#         note_en = r.json()["content"]
+#         note_ch = r.json()["note"]
+#         return note_ch, note_en
+#     else:
+#         return "", ""
 
 
 # # 彩虹屁
@@ -202,8 +202,7 @@ def tip():
 
 
 # 推送信息
-def send_message(to_user, access_token, city_name, weather, max_temperature, min_temperature, pop, tips,pipi,date,riqi_date,week,
-                 note_en, note_ch):
+def send_message(to_user, access_token, city_name, weather, max_temperature, min_temperature, pop, tips,pipi,date,riqi_date,week):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
     week_list = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
     year = localtime().tm_year
@@ -261,16 +260,6 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                 "value": love_days,
                 "color": get_color()
             },
-            "note_en": {
-                "value": note_en,
-                "color": get_color()
-            },
-            "note_ch": {
-                "value": note_ch,
-                "color": get_color()
-            },
-
-
             "pop": {
                 "value": pop,
                 "color": get_color()
@@ -345,7 +334,7 @@ if __name__ == "__main__":
     # 获取星座
     # astro = config["astro"]
     # 获取词霸每日金句
-    note_ch, note_en = get_ciba()
+    # note_ch, note_en = get_ciba()
     # 彩虹屁
     pipi = caihongpi()
     # 健康小提示
@@ -358,7 +347,7 @@ if __name__ == "__main__":
     # lucky_ = lucky()
     # 公众号推送消息
     for user in users:
-        send_message(user, accessToken, city, weather, max_temperature, min_temperature, pop, tips,pipi,riqi_date,week,note_en, note_ch)
+        send_message(user, accessToken, city, weather, max_temperature, min_temperature, pop, tips,pipi,riqi_date,week)
     import time
 
     time_duration = 3.5
