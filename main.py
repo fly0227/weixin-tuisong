@@ -112,22 +112,22 @@ def get_ciba():
         return "", ""
 
 
-# 彩虹屁
-def caihongpi():
-    if caihongpi_API != "替换掉我":
-        conn = http.client.HTTPSConnection('api.tianapi.com')  # 接口域名
-        params = urllib.parse.urlencode({'key': caihongpi_API})
-        headers = {'Content-type': 'application/x-www-form-urlencoded'}
-        conn.request('POST', '/caihongpi/index', params, headers)
-        res = conn.getresponse()
-        data = res.read()
-        data = json.loads(data)
-        data = data["result"]["content"]
-        if "XXX" in data:
-            data.replace("XXX", "宝贝")
-        return data
-    else:
-        return ""
+# # 彩虹屁
+# def caihongpi():
+#     if caihongpi_API != "替换掉我":
+#         conn = http.client.HTTPSConnection('api.tianapi.com')  # 接口域名
+#         params = urllib.parse.urlencode({'key': caihongpi_API})
+#         headers = {'Content-type': 'application/x-www-form-urlencoded'}
+#         conn.request('POST', '/caihongpi/index', params, headers)
+#         res = conn.getresponse()
+#         data = res.read()
+#         data = json.loads(data)
+#         data = data["result"]["content"]
+#         if "XXX" in data:
+#             data.replace("XXX", "宝贝")
+#         return data
+#     else:
+#         return ""
 
 
 # # 健康小提示API
@@ -164,19 +164,19 @@ def caihongpi():
 #         return ""
 
 
-# 励志名言
-def lizhi():
-    if lizhi_API != "替换掉我":
-        conn = http.client.HTTPSConnection('api.tianapi.com')  # 接口域名
-        params = urllib.parse.urlencode({'key': lizhi_API})
-        headers = {'Content-type': 'application/x-www-form-urlencoded'}
-        conn.request('POST', '/lzmy/index', params, headers)
-        res = conn.getresponse()
-        data = res.read()
-        data = json.loads(data)
-        return data["result"]["saying"]
-    else:
-        return ""
+# # 励志名言
+# def lizhi():
+#     if lizhi_API != "替换掉我":
+#         conn = http.client.HTTPSConnection('api.tianapi.com')  # 接口域名
+#         params = urllib.parse.urlencode({'key': lizhi_API})
+#         headers = {'Content-type': 'application/x-www-form-urlencoded'}
+#         conn.request('POST', '/lzmy/index', params, headers)
+#         res = conn.getresponse()
+#         data = res.read()
+#         data = json.loads(data)
+#         return data["result"]["saying"]
+#     else:
+#         return ""
 
 
 # 下雨概率和建议
