@@ -194,15 +194,15 @@ def tip():
         tips =dict_data["result"]["tips"]
         tempn = dict_data["result"]["lowest"]
         temp = dict_data["result"]['highest']
-        # riqi_date = dict_data["result"]["date"]
-        # week1 = dict_data["result"]['week']
-        return pop, tips,tempn,temp
+        riqi_date = dict_data["result"]["date"]
+        week1 = dict_data["result"]['week']
+        return pop, tips,tempn,temp,riqi_date,week1
     else:
         return ""
 
 
 # 推送信息
-def send_message(to_user, access_token, city_name, weather, max_temperature, min_temperature, pop, tips,pipi):
+def send_message(to_user, access_token, city_name, weather, max_temperature, min_temperature, pop, tips,pipi,riqi_date,week1):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
     week_list = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
     year = localtime().tm_year
@@ -244,10 +244,10 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                 "value": min_temperature,
                 "color": get_color()
             },
-            # "riqi_date": {
-            #     "value": riqi_date,
-            #     "color": get_color()
-            # },
+            "riqi_date": {
+                "value": riqi_date,
+                "color": get_color()
+            },
             "love_day": {
                 "value": love_days,
                 "color": get_color()
@@ -266,10 +266,10 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                 "value": tips,
                 "color": get_color()
             },
-            # "week1": {
-            #     "value": week1,
-            #     "color": get_color()
-            # },
+            "week1": {
+                "value": week1,
+                "color": get_color()
+            },
             "max_temperature": {
                 "value": max_temperature,
                 "color": get_color()
@@ -340,14 +340,14 @@ if __name__ == "__main__":
     # 健康小提示
     # health_tip = health()
     # 下雨概率和建议
-    pop, tips, max_temperature, min_temperature = tip()
+    pop, tips, max_temperature, min_temperature,riqi_date,week1 = tip()
     # 励志名言
     # lizhi = lizhi()
     # 星座运势
     # lucky_ = lucky()
     # 公众号推送消息
     for user in users:
-        send_message(user, accessToken, city, weather, max_temperature, min_temperature, pop, tips,pipi)
+        send_message(user, accessToken, city, weather, max_temperature, min_temperature, pop, tips,pipi,riqi_date,week1)
     import time
 
     time_duration = 3.5
