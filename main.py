@@ -344,7 +344,7 @@ if __name__ == "__main__":
     # 是否启用词霸每日金句
     Whether_Eng = config["Whether_Eng"]
     # 获取健康小提示API
-    health_API = config["health_API"]
+    # health_API = config["health_API"]
     # 获取星座运势API
     lucky_API = config["lucky_API"]
     # 获取星座
