@@ -114,7 +114,7 @@ def get_ciba():
 
 # 彩虹屁
 def caihongpi():
-    if caihongpi_API != "b76db68328f73fba76b3e0dad7c8e544":
+    if caihongpi_API != "替换掉我":
         conn = http.client.HTTPSConnection('api.tianapi.com')  # 接口域名
         params = urllib.parse.urlencode({'key': caihongpi_API})
         headers = {'Content-type': 'application/x-www-form-urlencoded'}
@@ -166,7 +166,7 @@ def caihongpi():
 
 # 励志名言
 def lizhi():
-    if lizhi_API != "c64bc326c3c450f1819bceb14b929027":
+    if lizhi_API != "替换掉我":
         conn = http.client.HTTPSConnection('api.tianapi.com')  # 接口域名
         params = urllib.parse.urlencode({'key': lizhi_API})
         headers = {'Content-type': 'application/x-www-form-urlencoded'}
@@ -181,7 +181,7 @@ def lizhi():
 
 # 下雨概率和建议
 def tip():
-    if tianqi_API != "c64bc326c3c450f1819bceb14b929027":
+    if tianqi_API != "替换掉我":
         conn = http.client.HTTPSConnection('api.tianapi.com')  # 接口域名
         params = urllib.parse.urlencode({'key': tianqi_API, 'city': city})
         headers = {'Content-type': 'application/x-www-form-urlencoded'}
@@ -193,7 +193,7 @@ def tip():
         pop = dict_data["result"]["pop"]
         tempn = dict_data["result"]["lowest"]
         temp = dict_data["result"]['highest']
-        return pop, tips,tempn,temp
+        return pop, tips ,tempn ,temp
     else:
         return "", ""
 
