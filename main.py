@@ -358,8 +358,7 @@ if __name__ == "__main__":
     # lucky_ = lucky()
     # 公众号推送消息
     for user in users:
-        send_message(user, accessToken, city, weather, max_temperature, min_temperature, pop, tips,pipi,riqi_date,week,
-                     note_en, note_ch)
+        send_message(user, accessToken, city, weather, max_temperature, min_temperature, pop, tips,pipi,riqi_date,week,note_en, note_ch)
     import time
 
     time_duration = 3.5
