@@ -16,7 +16,6 @@ def get_color():
     color_list = get_colors(100)
     return random.choice(color_list)
 
-
 def get_access_token():
     # appId
     app_id = config["app_id"]
