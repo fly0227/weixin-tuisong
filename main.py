@@ -93,7 +93,6 @@ def get_weather(province, city):
     weather = weatherinfo["weather"]
     return weather
 
-
 # 词霸每日一句
 # def get_ciba():
 #     if Whether_Eng != "否":
