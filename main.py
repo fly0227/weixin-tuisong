@@ -41,7 +41,6 @@ def get_birthday(birthday, year, today):
         birthday = ZhDate(year, r_mouth, r_day).to_datetime().date()
         year_date = birthday
 
-
     else:
         # 获取国历生日的今年对应月和日
         birthday_month = int(birthday.split("-")[1])
